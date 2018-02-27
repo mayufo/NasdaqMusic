@@ -5,7 +5,7 @@ var port = process.argv[2]
 var qiniu = require('qiniu')
 
 if(!port){
-    console.log('请指定端口号好不啦？\nnode server.js 8888 这样不会吗？')
+    console.log('请指定端口号好不啦？\n node server.js 8888 这样不会吗？')
     process.exit(1)
 }
 
@@ -31,7 +31,7 @@ var server = http.createServer(function(request, response){
         let {accessKey, secretKey} = config
         var mac = new qiniu.auth.digest.Mac(accessKey, secretKey);
         var options = {
-            scope: bucket, // 你的项目名字
+            scope: 'nasdaq-music', // 你的项目名字
         };
         var putPolicy = new qiniu.rs.PutPolicy(options);
         var uploadToken = putPolicy.uploadToken(mac);
