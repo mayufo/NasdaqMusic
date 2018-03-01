@@ -26,21 +26,21 @@
 </head>
 <body>
 <div id="yyy">
-    <span id="xxx">点击或拖拽文件</span>
+    <button id="xxx">点击或拖拽文件</button>
     <p>文件大小不能超过40MB</p>
 </div>
-<div class="uploadStatus"></div>
+<div id="uploadStatus"></div>
 <script src="../node_modules/leancloud-storage/dist/av.js"></script>
 
 
 <script src="../vendors/moxie.js"></script>
 <scirpt src="../node_modules/plupload/js/plupload.min"></scirpt>
-<script src="../node_modules/qiniu-js/dist/qiniu.min.js"></script>
+<script src="../vendors/qiniu.min.js"></script>
 
 <script>
-    console.log(qiniu.upload)
+//    console.log(11, qiniu.upload)
     //引入Plupload 、qiniu.js后
-    var uploader = qiniu.uploader({
+    var uploader = Qiniu.uploader({
         runtimes: 'html5',    //上传模式,依次退化
         browse_button: 'xxx',       //上传选择的点选按钮，**必需**
         uptoken_url : 'http://localhost:8888/uptoken',          //Ajax请求upToken的Url，**强烈建议设置**（服务端提供）
