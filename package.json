@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/mayufo/NasdaqMusic#readme",
   "dependencies": {
+    "jquery": "^3.3.1",
     "leancloud-storage": "^3.6.0",
-    "plupload": "^2.3.2",
+    "plupload": "^2.3.2"
   }
 }

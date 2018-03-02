@@ -1,6 +1,7 @@
 $mainBg: #25272e;
 $mainLine: #33343e;
 $mainText: #737174;
+$active: #4b79cf;
 *{
     margin: 0;
     padding: 0;
@@ -56,7 +57,7 @@ main {
 
     .input-info-area {
         display: flex;
-        flex-direction: row ;
+        flex-direction: row;
     }
 
     input {
@@ -68,11 +69,20 @@ main {
         margin-bottom: 16px;
     }
 
+    .create-song {
+        background: $active;
+        padding: 6px 16px;
+        width: 80px;
+        border-radius: 6px;
+        margin-bottom: 30px;
+    }
+
     .input-info-wrapper {
         margin-bottom: 30px;
         img {
             height: 120px;
             width: 120px;
+            object-fit: cover;
         }
         .input-info {
             margin-left: 60px;
@@ -117,6 +127,10 @@ main {
             .short {
                 width: 26%;
             }
+        }
+
+        .active {
+            background: $active;
         }
     }
 

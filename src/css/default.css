@@ -53,11 +53,18 @@ main {
     outline-color: #737174;
     color: #737174;
     margin-bottom: 16px; }
+  main .create-song {
+    background: #4b79cf;
+    padding: 6px 16px;
+    width: 80px;
+    border-radius: 6px;
+    margin-bottom: 30px; }
   main .input-info-wrapper {
     margin-bottom: 30px; }
     main .input-info-wrapper img {
       height: 120px;
-      width: 120px; }
+      width: 120px;
+      object-fit: cover; }
     main .input-info-wrapper .input-info {
       margin-left: 60px; }
       main .input-info-wrapper .input-info .form-row {
@@ -89,6 +96,8 @@ main {
         width: 40%; }
       main .song-list-wrapper li .short {
         width: 26%; }
+    main .song-list-wrapper .active {
+      background: #4b79cf; }
   main .upload-song {
     margin-top: 30px;
     width: 100%;
