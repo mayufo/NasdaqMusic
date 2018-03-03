@@ -11,7 +11,7 @@
 <body>
 <main>
     <!--新建歌曲-->
-    <div class="create-song"></div>
+    <div class="create-song active"></div>
     <!--歌曲信息-->
     <div class="input-info-wrapper"></div>
     <!--歌曲列表-->
@@ -26,12 +26,17 @@
     <div id="uploadStatus"></div>
 </main>
 
-<script src="../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../node_modules/leancloud-storage/dist/av.js"></script>
+<script src="js/initializers/av.js"></script>
 
+
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../vendors/moxie.js"></script>
 <script src="../node_modules/plupload/js/plupload.min"></script>
 <script src="../vendors/qiniu.min.js"></script>
+
+<script src="js/eventHub.js"></script>
+
 <script src="js/create-song.js"></script>
 <script src="js/input-info.js"></script>
 <script src="js/song-list.js"></script>

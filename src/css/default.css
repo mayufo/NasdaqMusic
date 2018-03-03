@@ -39,6 +39,8 @@ main {
   box-shadow: 0 7px 6px 2px rgba(43, 43, 43, 0.75);
   display: flex;
   flex-direction: column; }
+  main .active {
+    background: #4b79cf !important; }
   main h3 {
     padding-bottom: 10px;
     border-bottom: 1px solid #33343e;
@@ -54,7 +56,7 @@ main {
     color: #737174;
     margin-bottom: 16px; }
   main .create-song {
-    background: #4b79cf;
+    background: #535353;
     padding: 6px 16px;
     width: 80px;
     border-radius: 6px;
@@ -81,6 +83,9 @@ main {
         margin: 0; }
   main .song-list-wrapper {
     flex-grow: 1; }
+    main .song-list-wrapper ol {
+      max-height: calc(100vh - 596px);
+      overflow: scroll; }
     main .song-list-wrapper li {
       width: 100%;
       background: #535353;
@@ -96,8 +101,6 @@ main {
         width: 40%; }
       main .song-list-wrapper li .short {
         width: 26%; }
-    main .song-list-wrapper .active {
-      background: #4b79cf; }
   main .upload-song {
     margin-top: 30px;
     width: 100%;
