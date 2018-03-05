@@ -81,7 +81,16 @@
             this.view.$el.on('click', 'li', (e) => {
                 this.view.activeItem(e.currentTarget)
                 let songId = $(e.currentTarget).attr('data-id')
-                window.eventHub.emit('select', {id : songId})
+                // let name = e.currentTarget.textContent
+                let data
+                for (let i = 0; i < this.model.data.songs.length; i++) {
+                    if(this.model.data.songs[i].id === songId) {
+                        data = this.model.data.songs[i]
+                        break
+                    }
+                }
+                let object = JSON.parse(JSON.stringify(data))
+                window.eventHub.emit('select', object)
             })
         },
         bindEventHub () {
@@ -91,6 +100,9 @@
             window.eventHub.on('create', (data) => {
                 this.model.data.songs.push(data)
                 this.view.render(this.model.data)
+            })
+            window.eventHub.on('new', () => {
+                this.view.clearActive()
             })
         }
     }

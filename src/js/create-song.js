@@ -20,13 +20,15 @@
             })
             window.eventHub.on('select', (data) => {
                 console.log(data.id)
-                this.deactive()
+                this.deActive()
             })
+            $(this.view.el).on('click', this.active.bind(this))
         },
         active() {
             $(this.view.el).addClass('active')
+            window.eventHub.emit('new')
         },
-        deactive() {
+        deActive() {
             $(this.view.el).removeClass('active')
         }
     }

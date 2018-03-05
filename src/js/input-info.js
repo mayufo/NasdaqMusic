@@ -24,9 +24,13 @@
             let html = this.template
             placeholders.map((string) => {
                 html = html.replace(`__${string}__`, data[string] || '')
-
             })
             this.$el.html(html)
+            if (!data.id) {
+                $(this.el).prepend('<h3>新建歌曲</h3>')
+            } else {
+                $(this.el).prepend('<h3>编辑歌曲</h3>')
+            }
         }
     }
 
@@ -67,7 +71,17 @@
                 this.view.render(data)
             })
             window.eventHub.on('select', (data) => {
-                console.log(data)
+                this.model.data = data
+                this.view.render(this.model.data)
+            })
+            window.eventHub.on('new', (data) => {
+                this.model.data = {
+                    name: '',
+                    singer: '',
+                    url: ''
+                }
+                this.view.render(this.model.data)
+
             })
         },
         bindEvent() {

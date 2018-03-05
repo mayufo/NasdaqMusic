@@ -85,7 +85,8 @@ main {
     flex-grow: 1; }
     main .song-list-wrapper ol {
       max-height: calc(100vh - 596px);
-      overflow: scroll; }
+      overflow: scroll;
+      min-height: 112px; }
     main .song-list-wrapper li {
       width: 100%;
       background: #535353;
