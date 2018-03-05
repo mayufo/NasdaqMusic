@@ -62,8 +62,8 @@
                         uploadStatus.textContent = sourceLink +  ' ' + response.key
                         // window.app.Create.active()
                         // window.app.Input.reset()
-                        window.eventHub.emit('upload', {
-                            link: sourceLink,
+                        window.eventHub.emit('new', {
+                            url: sourceLink,
                             name: response.key
                         })
                     },

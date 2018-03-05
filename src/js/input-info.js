@@ -58,7 +58,18 @@
             },  (error) => {
                 console.error(error)
             })
-        }
+        },
+        update (data) {
+            let song = AV.Object.createWithoutData('Song', this.data.id)
+            song.set('name', data.name)
+            song.set('singer', data.singer)
+            song.set('url', data.url)
+            return song.save().then((response) => {
+                // 更新成功需要保存新数据
+                Object.assign(this.data, data)
+                return response
+            })
+        },
     }
     let controller = {
         init (view, model) {
@@ -67,18 +78,18 @@
             this.view.init()
             this.view.render(this.model.data)
             this.bindEvent()
-            window.eventHub.on('upload', (data) => {
-                this.view.render(data)
-            })
             window.eventHub.on('select', (data) => {
                 this.model.data = data
                 this.view.render(this.model.data)
             })
             window.eventHub.on('new', (data) => {
-                this.model.data = {
-                    name: '',
-                    singer: '',
-                    url: ''
+                // 说明
+                if (this.model.data.id) {
+                    // 存在于列表的数据，点击创建
+                    this.model.data = {name: '', singer: '', url: ''}
+                } else {
+                    // 上传歌曲以后，点击新建
+                    Object.assign(this.model.data, data)
                 }
                 this.view.render(this.model.data)
 
@@ -87,22 +98,41 @@
         bindEvent() {
             this.view.$el.on('submit', 'form', (e) => {
                 e.preventDefault()
-                let params = 'name singer url'.split(' ')
-                let data = {}
-                params.map((string) => {
-                    data[string] = this.view.$el.find(`[name ="${string}"]`).val()
-                })
-                this.model.create(data)
-                    .then(() => {
-                        console.log(this.model.data);
-                        let object = JSON.parse(JSON.stringify(this.model.data))
-                        window.eventHub.emit('create', object)
-                        this.reset()
-                    })
+                if (this.model.data.id) {
+                    this.update()
+                } else {
+                    this.create()
+                }
+
             })
         },
+        update () {
+            let params = 'name singer url'.split(' ')
+            let data = {}
+            params.map((string) => {
+                data[string] = this.view.$el.find(`[name ="${string}"]`).val()
+            })
+            this.model.update(data)
+                .then((response) => {
+                    console.log(3, response, this.model.data)
+                    window.eventHub.emit('update', JSON.parse(JSON.stringify(this.model.data)))
+                })
+
+        },
+        create () {
+            let params = 'name singer url'.split(' ')
+            let data = {}
+            params.map((string) => {
+                data[string] = this.view.$el.find(`[name ="${string}"]`).val()
+            })
+            this.model.create(data)
+                .then(() => {
+                    let object = JSON.parse(JSON.stringify(this.model.data))
+                    window.eventHub.emit('create', object)
+                    this.reset()
+                })
+        },
         reset() {
-            console.log(11);
             this.view.render({})
         }
     }

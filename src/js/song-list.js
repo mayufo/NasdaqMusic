@@ -23,24 +23,24 @@
                 <!--<div class="short">5:00</div>-->
             <!--</li>-->
         </ol>`,
-        activeItem (li) {
-            let $li = $(li)
-            $li.addClass('active').siblings('.active').removeClass('active')
-        },
         clearActive () {
           this.$el.find('.active').removeClass('active')
         },
         init() {
           this.$el = $(this.el)
         },
-
         render(data) {
             this.$el.html(this.template)
-            let {songs} = data
-            let liList = songs.map((song) => $('<li></li>').html(`<div class="long">${song.name}</div><div class="short">${song.singer}</div><div class="short">${song.time}</div>`).attr('data-id', song.id))
-            console.log(this.$el.find('ol'))
+            let {songs, selectId} = data
+            let liList = songs.map((song) => {
+                let $li = $('<li></li>').html(`<div class="long">${song.name}</div><div class="short">${song.singer}</div><div class="short">${song.time}</div>`).attr('data-id', song.id)
+                if (song.id === selectId) {
+                    $li.addClass('active')
+                    return $li
+                }
+                return $li
+            })
             this.$el.find('ol').empty()
-            console.log(liList)
 
             liList.map((domLi) => {
                 this.$el.find('ol').append(domLi)
@@ -49,7 +49,8 @@
     }
     let model = {
         data: {
-            songs: []
+            songs: [],
+            selectId: null
         },
         find () {
             let query = new AV.Query('Song')
@@ -79,9 +80,11 @@
         },
         bindEvent () {
             this.view.$el.on('click', 'li', (e) => {
-                this.view.activeItem(e.currentTarget)
                 let songId = $(e.currentTarget).attr('data-id')
-                // let name = e.currentTarget.textContent
+
+                this.model.data.selectId = songId
+                this.view.render(this.model.data)
+
                 let data
                 for (let i = 0; i < this.model.data.songs.length; i++) {
                     if(this.model.data.songs[i].id === songId) {
@@ -94,15 +97,21 @@
             })
         },
         bindEventHub () {
-            window.eventHub.on('upload', () => {
-                this.view.clearActive()
-            })
             window.eventHub.on('create', (data) => {
                 this.model.data.songs.push(data)
                 this.view.render(this.model.data)
             })
             window.eventHub.on('new', () => {
                 this.view.clearActive()
+            })
+            window.eventHub.on('update', (data) => {
+                console.log(555, data);
+                for (let i = 0; i < this.model.data.songs.length; i++) {
+                    if (this.model.data.songs[i].id === data.id) {
+                        Object.assign(this.model.data.songs[i], data)
+                    }
+                }
+                this.view.render(this.model.data)
             })
         }
     }
