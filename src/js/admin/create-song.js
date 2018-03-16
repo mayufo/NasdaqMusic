@@ -3,7 +3,7 @@
  */
 {
     let view = {
-        el: 'main > .create-song',
+        el: 'main  .create-song',
         template: '新建歌曲',
         render(data) {
             $(this.el).html(this.template)

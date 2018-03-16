@@ -33,7 +33,7 @@
             this.$el.html(this.template)
             let {songs, selectId} = data
             let liList = songs.map((song) => {
-                let $li = $('<li></li>').html(`<div class="long">${song.name}</div><div class="short">${song.singer}</div><div class="short">${song.time}</div>`).attr('data-id', song.id)
+                let $li = $('<li></li>').html(`<div class="long overflow">${song.name}</div><div class="short overflow">${song.singer}</div><div class="short overflow">${song.time}</div>`).attr('data-id', song.id)
                 if (song.id === selectId) {
                     $li.addClass('active')
                     return $li

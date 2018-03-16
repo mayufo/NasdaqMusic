@@ -20,6 +20,12 @@ $active: #4b79cf;
     }
 }
 
+.overflow {
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+
 ul, ol {
     list-style: none;
 }
@@ -42,13 +48,14 @@ body {
 main {
     background: $mainBg;
     width: 80vw;
-    height: 80vh;
-    margin: 10vh auto;
+    height: 100vh;
+    margin: 0 auto;
     padding: 30px 120px;
     color: white;
     box-shadow: 0 7px 6px 2px rgba(43, 43, 43, 0.75);
     display: flex;
     flex-direction: column;
+    min-width: 800px;
 
     .active {
         background: $active!important;
@@ -79,18 +86,21 @@ main {
         padding: 6px 16px;
         width: 80px;
         border-radius: 6px;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
+        float: left;
+        margin-right: 30px;
     }
 
     .input-info-wrapper {
         margin-bottom: 30px;
-        img {
-            height: 120px;
-            width: 120px;
-            object-fit: cover;
-        }
+        //img {
+        //    height: 120px;
+        //    width: 120px;
+        //    object-fit: cover;
+        //}
         .input-info {
-            margin-left: 60px;
+            margin: 0 20px;
+            width: 100%;
             .form-row {
                 display: flex;
                 flex-direction:row;
@@ -99,11 +109,11 @@ main {
                 margin-left: 30px;
             }
             .short {
-                width: 174px;
+                width: 50%;
             }
             .long {
                 display: block;
-                width: 378px;
+                width: 100%;
             }
             .button {
                 margin: 0;
@@ -141,9 +151,9 @@ main {
     }
 
     .upload-song {
-        margin-top: 30px;
-        width: 100%;
-        padding: 30px 50px;
+        //margin-top: 30px;
+        width: calc(100% - 150px);
+        padding: 6px 50px;
         border-radius: 6px;
         border: 1px dashed #ddd;
         display: flex;
@@ -166,6 +176,7 @@ main {
     height: 100%;
     z-index: 1;
     background: rgba(0,0,0,0.2);
+    pointer-events: none;
 }
 
 .loading::before {
