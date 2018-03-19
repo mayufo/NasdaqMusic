@@ -2,13 +2,12 @@
 <html lang="zh-Hans">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>网易音乐</title>
-    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/admin.css">
 </head>
-<body>
+<body id="body">
 
 <div class="loading">loading</div>
 
@@ -32,14 +31,15 @@
     <div class="song-list-wrapper"></div>
 
 </main>
-
+<script src="js/initializers/bg.js"></script>
+<script src="js/initializers/3dCanvas.js"></script>
 <script src="../node_modules/leancloud-storage/dist/av.js"></script>
 <script src="js/initializers/av.js"></script>
 
 
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../vendors/moxie.js"></script>
-<script src="../node_modules/plupload/js/plupload.min"></script>
+<!--<script src="../node_modules/plupload/js/plupload.min"></script>-->
 <script src="../vendors/qiniu.min.js"></script>
 
 <script src="js/admin/eventHub.js"></script>

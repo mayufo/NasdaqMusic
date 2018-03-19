@@ -1,0 +1,85 @@
+@import 'default.scss';
+
+main {
+  padding: 0;
+}
+
+.header-wrapper {
+  //margin-top: 20px;
+  .banner {
+    background: $active;
+    padding: 10px 15px;
+
+    .icon-music-note {
+      float: left;
+      font-size: 24px;
+    }
+    h4 {
+      color: white;
+      float: left;
+      font-size: 14px;
+      line-height: 35px;
+      margin-left: 15px;
+    }
+  }
+  .tab {
+    display: flex;
+    background: white;
+    color: $default;
+    a {
+      flex-grow: 1;
+      text-align: center;
+      line-height: 44px;
+      font-size: 14px;
+    }
+    .active {
+      color: $active;
+      border-bottom: 3px solid $active;
+    }
+  }
+}
+.content {
+  > li {
+    display: none;
+  }
+  .recommend {
+    display: block;
+  }
+
+  h3 {
+    padding: 15px 15px;
+    position: relative;
+    font-size: 16px;
+    font-weight: normal;
+    &:before {
+      content: '';
+      height: 14px;
+      width: 2px;
+      background: $active;
+      display: block;
+      position: absolute;
+      margin-right: 15px;
+      left: 0;
+      top: calc(50% - 7px);
+    }
+  }
+
+  .new-content {
+    margin-left: 15px;
+    > li {
+      margin-bottom: 10px;
+      position: relative;
+      h4 {
+        font-weight: normal;
+        font-size: 16px;
+      }
+      .icon-play {
+        font-size: 24px;
+        position: absolute;
+        right: 15px;
+        top: calc(50% - 17px);
+      }
+    }
+  }
+
+}

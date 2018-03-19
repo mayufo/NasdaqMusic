@@ -1,10 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hans">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>云音乐</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_594556_7qky4i5ftju4n29.css">
 </head>
-<body>
+<body id="body">
+    <main>
+        <!--头部-->
+        <div class="header-wrapper">
+            <div class="banner clearfix">
+                <i class="iconfont icon-music-note"></i>
+                <h4>This is my music</h4>
+            </div>
+            <nav class="tab">
+                <a class="active" data-name="recommend">推荐音乐</a>
+                <a data-name="hot">排行榜</a>
+                <a data-name="search">搜索</a>
+            </nav>
+        </div>
+        <ol class="content">
+            <li class="recommend">
+                <div class="list"></div>
+                <div class="new">
+                    <h3>最新音乐</h3>
+                    <ul class="new-content">
+                        <li>
+                            <h4>歌曲名字</h4>
+                            <div>作者 </div>
+                            <i class="iconfont icon-play"></i>
+                        </li>
+                        <li>
+                            <h4>歌曲名字</h4>
+                            <div>作者</div>
+                            <i class="iconfont icon-play"></i>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </li>
+            <li class="hot">222</li>
+            <li class="search">33333</li>
+        </ol>
+
+    </main>
+    <script src="js/initializers/bg.js"></script>
+    <script src="js/initializers/3dCanvas.js"></script>
+    <script src="../node_modules/leancloud-storage/dist/av.js"></script>
+    <script src="js/initializers/av.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+
+    <script src="js/admin/eventHub.js"></script>
+    <script src="js/index/tab.js"></script>
+
+    <script src="js/index/recommend.js"></script>
+    <script src="js/index/hot.js"></script>
+    <script src="js/index/search.js"></script>
 
 </body>
 </html>

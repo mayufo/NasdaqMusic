@@ -1,204 +1,73 @@
-$mainBg: #25272e;
-$mainLine: #33343e;
-$mainText: #737174;
+$mainBg: rgba(255,255,255, 0.2);
+$mainLine: white;
+$mainText: white;
 $default: #535353;
 $active: #4b79cf;
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .clearfix {
-    &:before,
-    &:after {
-        content: " "; // 1
-        display: table; // 2
-    }
-    &:after {
-        clear: both;
-    }
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
 }
 
 .overflow {
-    overflow: hidden;
-    text-overflow:ellipsis;
-    white-space: nowrap;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  vertical-align: top;
 }
 
 ul, ol {
-    list-style: none;
+  list-style: none;
+}
+
+input {
+  outline: none;
 }
 
 body {
-    font-size: 12px;
-    line-height: 1.5;
-    background: linear-gradient(230deg,#a24bcf,#4b79cf,#4bc5cf);
-    background-size:1000% 1000% ;
-    animation: AnimationName 23s ease infinite;
-    counter-reset: listCounter;
+  font-size: 12px;
+  line-height: 1.5;
+  position: fixed;  /*position must be absolute or fixed*/
+  width: 100%;
+  height: 100%;
+  font-family: PingFang SC,-apple-system,Arial,Microsoft YaHei,Microsoft JhengHei,Helvetica Neue,sans-serif;
+  //background: linear-gradient(230deg,#a24bcf,#4b79cf,#4bc5cf);
+  //background-size:1000% 1000% ;
+  //animation: AnimationName 23s ease infinite;
+  counter-reset: listCounter;
 }
 
-@keyframes AnimationName {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-
+//@keyframes AnimationName {
+//  0%{background-position:0% 50%}
+//  50%{background-position:100% 50%}
+//  100%{background-position:0% 50%}
+//}
+//
 main {
-    background: $mainBg;
-    width: 80vw;
-    height: 100vh;
-    margin: 0 auto;
-    padding: 30px 120px;
-    color: white;
-    box-shadow: 0 7px 6px 2px rgba(43, 43, 43, 0.75);
-    display: flex;
-    flex-direction: column;
-    min-width: 800px;
-
-    .active {
-        background: $active!important;
-    }
-
-    h3 {
-        padding-bottom: 10px;
-        border-bottom: 1px solid $mainLine;
-        margin-bottom: 15px;
-    }
-
-    .input-info-area {
-        display: flex;
-        flex-direction: row;
-    }
-
-    input {
-        background: $mainBg;
-        border: 1px solid $mainLine;
-        padding: 6px 14px;
-        outline-color: $mainText;
-        color: $mainText;
-        margin-bottom: 16px;
-    }
-
-    .create-song {
-        background: $default;
-        padding: 6px 16px;
-        width: 80px;
-        border-radius: 6px;
-        margin-bottom: 20px;
-        float: left;
-        margin-right: 30px;
-    }
-
-    .input-info-wrapper {
-        margin-bottom: 30px;
-        //img {
-        //    height: 120px;
-        //    width: 120px;
-        //    object-fit: cover;
-        //}
-        .input-info {
-            margin: 0 20px;
-            width: 100%;
-            .form-row {
-                display: flex;
-                flex-direction:row;
-            }
-            .short + .short{
-                margin-left: 30px;
-            }
-            .short {
-                width: 50%;
-            }
-            .long {
-                display: block;
-                width: 100%;
-            }
-            .button {
-                margin: 0;
-            }
-        }
-    }
-
-    .song-list-wrapper {
-        flex-grow: 1;
-        ol {
-            max-height: calc(100vh - 596px);
-            overflow: scroll;
-            min-height: 112px;
-        }
-        li {
-            width: 100%;
-            background: $default;
-            margin-bottom: 10px;
-            padding: 6px 16px;
-            &:before {
-                content: counter(listCounter) ". ";
-                counter-increment: listCounter;
-                padding-right: 5px;
-            }
-            div {
-                display: inline-block;
-            }
-            .long {
-                width: 40%;
-            }
-            .short {
-                width: 26%;
-            }
-        }
-    }
-
-    .upload-song {
-        //margin-top: 30px;
-        width: calc(100% - 150px);
-        padding: 6px 50px;
-        border-radius: 6px;
-        border: 1px dashed #ddd;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        
-        p {
-            text-align: center;
-        }
-    }
+  background: $mainBg;
+  position: absolute;
+  width: 80vw;
+  height: 100vh;
+  margin: 0 10vw;
+  padding: 30px 120px;
+  color: white;
+  //box-shadow: 0 7px 6px 2px rgba(255, 255, 255, 0.75);
+  display: flex;
+  flex-direction: column;
+  min-width: 800px;
 }
 
-.loading {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    background: rgba(0,0,0,0.2);
-    pointer-events: none;
-}
-
-.loading::before {
-    content: '';
-    display: block;
-    width: 100px;
-    height: 100px;
-    background: black;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -50px;
-    margin-left: -50px;
-    border-radius: 50%;
-    animation: loading 1s infinite alternate-reverse linear;
-}
-
-@keyframes loading {
-    0% {
-        transform: scale(1.0);
-    }
-    100% {
-        transform: scale(0.1);
-    }
+::-webkit-input-placeholder { /* WebKit browsers */
+  color: $mainText;
 }

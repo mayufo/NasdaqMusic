@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table; }
+.clearfix:after {
+  clear: both; }
+
+.overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: top; }
+
+ul, ol {
+  list-style: none; }
+
+input {
+  outline: none; }
+
+body {
+  font-size: 12px;
+  line-height: 1.5;
+  position: fixed;
+  /*position must be absolute or fixed*/
+  width: 100%;
+  height: 100%;
+  font-family: PingFang SC,-apple-system,Arial,Microsoft YaHei,Microsoft JhengHei,Helvetica Neue,sans-serif;
+  counter-reset: listCounter; }
+
+main {
+  background: rgba(255, 255, 255, 0.2);
+  position: absolute;
+  width: 80vw;
+  height: 100vh;
+  margin: 0 10vw;
+  padding: 30px 120px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  min-width: 800px; }
+
+::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: white; }
+
+main {
+  padding: 0; }
+
+.header-wrapper .banner {
+  background: #4b79cf;
+  padding: 10px 15px; }
+  .header-wrapper .banner .icon-music-note {
+    float: left;
+    font-size: 24px; }
+  .header-wrapper .banner h4 {
+    color: white;
+    float: left;
+    font-size: 14px;
+    line-height: 35px;
+    margin-left: 15px; }
+.header-wrapper .tab {
+  display: flex;
+  background: white;
+  color: #535353; }
+  .header-wrapper .tab a {
+    flex-grow: 1;
+    text-align: center;
+    line-height: 44px;
+    font-size: 14px; }
+  .header-wrapper .tab .active {
+    color: #4b79cf;
+    border-bottom: 3px solid #4b79cf; }
+
+.content > li {
+  display: none; }
+.content .recommend {
+  display: block; }
+.content h3 {
+  padding: 15px 15px;
+  position: relative;
+  font-size: 16px;
+  font-weight: normal; }
+  .content h3:before {
+    content: '';
+    height: 14px;
+    width: 2px;
+    background: #4b79cf;
+    display: block;
+    position: absolute;
+    margin-right: 15px;
+    left: 0;
+    top: calc(50% - 7px); }
+.content .new-content {
+  margin-left: 15px; }
+  .content .new-content > li {
+    margin-bottom: 10px;
+    position: relative; }
+    .content .new-content > li h4 {
+      font-weight: normal;
+      font-size: 16px; }
+    .content .new-content > li .icon-play {
+      font-size: 24px;
+      position: absolute;
+      right: 15px;
+      top: calc(50% - 17px); }
+
+/*# sourceMappingURL=index.css.map */
