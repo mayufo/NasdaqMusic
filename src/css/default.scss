@@ -9,6 +9,11 @@ $active: #4b79cf;
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .clearfix {
   &:before,
   &:after {

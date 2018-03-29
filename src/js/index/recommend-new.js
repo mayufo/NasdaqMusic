@@ -4,26 +4,32 @@
         init() {
             this.$el = $(this.view)
         },
+        template: `<li>
+                    <a href="./song.html?id={{song.id}}">
+                        <h4>{{song.name}}</h4>
+                        <div>{{song.singer}}</div>
+                        <i class="iconfont icon-play"></i>
+                    </a>
+                    
+                </li>`,
         render(data) {
-            console.log(data);
             let songs = data.songs
+            console.log(1)
 
             songs.map((song) => {
-                console.log(song)
-                let $li = $(`
-                <li data-id=${song.id}>
-                    <h4>${song.name}</h4>
-                    <div>${song.singer} </div>
-                    <i class="iconfont icon-play"></i>
-                </li>`)
-                this.$el.find('.new-content').append($li)
+                let $li = $(this.template
+                    .replace('{{song.name}}', song.name)
+                    .replace('{{song.singer}}', song.singer)
+                    .replace('{{song.id}}', song.id))
+                console.log(2);
+
+                $(this.el).append($li)
             })
         }
     }
     let model = {
         data: {
             songs: [],
-            // selectId: null
         },
         find () {
             let query = new AV.Query('Song')
