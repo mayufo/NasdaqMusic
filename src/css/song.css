@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+a {
+  text-decoration: none;
+  color: inherit; }
+
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table; }
+.clearfix:after {
+  clear: both; }
+
+.overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: top; }
+
+ul, ol {
+  list-style: none; }
+
+input {
+  outline: none; }
+
+body {
+  font-size: 12px;
+  line-height: 1.5;
+  position: fixed;
+  /*position must be absolute or fixed*/
+  width: 100%;
+  height: 100%;
+  font-family: PingFang SC,-apple-system,Arial,Microsoft YaHei,Microsoft JhengHei,Helvetica Neue,sans-serif;
+  counter-reset: listCounter; }
+
+main {
+  background: rgba(255, 255, 255, 0.2);
+  position: absolute;
+  width: 80vw;
+  height: 100vh;
+  margin: 0 10vw;
+  padding: 30px 120px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  min-width: 800px; }
+
+::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: white; }
+
+body {
+  background-color: #535353; }
+
+main {
+  padding: 0;
+  width: 1400px;
+  margin: 0 auto;
+  position: relative; }
+  main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(https://p1.music.126.net/_ZIyHUML8sXBvJXqLdQDOg==/105553116278617.jpg?imageView&thumbnail=360x0&quality=75&tostatic=0);
+    background-size: cover;
+    filter: blur(10px);
+    z-index: -1; }
+  main .dist-wrap .needle {
+    position: absolute;
+    left: 200px;
+    width: 188px;
+    z-index: 2; }
+  main .dist-wrap .dist-content {
+    margin-top: 180px;
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+    position: relative; }
+    main .dist-wrap .dist-content .ring {
+      width: 550px;
+      z-index: 1; }
+    main .dist-wrap .dist-content .light {
+      position: absolute;
+      width: 550px;
+      z-index: 1; }
+    main .dist-wrap .dist-content .song-cover {
+      width: 350px;
+      position: absolute;
+      left: 100px; }
+    main .dist-wrap .dist-content .song-info {
+      top: 0;
+      position: absolute;
+      left: 600px;
+      font-size: 14px; }
+      main .dist-wrap .dist-content .song-info p {
+        margin-bottom: 15px; }
+      main .dist-wrap .dist-content .song-info .name {
+        font-size: 20px; }
+
+/*# sourceMappingURL=song.css.map */

@@ -10,6 +10,7 @@ a {
 .clearfix:before, .clearfix:after {
   content: " ";
   display: table; }
+
 .clearfix:after {
   clear: both; }
 
@@ -50,5 +51,3 @@ main {
 ::-webkit-input-placeholder {
   /* WebKit browsers */
   color: white; }
-
-/*# sourceMappingURL=default.css.map */
