@@ -2,7 +2,7 @@ $mainBg: rgba(255,255,255, 0.2);
 $mainLine: white;
 $mainText: white;
 $default: #535353;
-$active: #4b79cf;
+$active: #65a8cf;
 *{
   margin: 0;
   padding: 0;
@@ -75,4 +75,8 @@ main {
 
 ::-webkit-input-placeholder { /* WebKit browsers */
   color: $mainText;
+}
+
+img {
+  object-fit: cover;
 }

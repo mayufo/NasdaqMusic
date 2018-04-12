@@ -10,7 +10,6 @@
                         <div>{{song.singer}}</div>
                         <i class="iconfont icon-play"></i>
                     </a>
-                    
                 </li>`,
         render(data) {
             let songs = data.songs
@@ -21,7 +20,6 @@
                     .replace('{{song.name}}', song.name)
                     .replace('{{song.singer}}', song.singer)
                     .replace('{{song.id}}', song.id))
-                console.log(2);
 
                 $(this.el).append($li)
             })

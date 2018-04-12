@@ -6,7 +6,7 @@ http-server -c-1
 http://localhost:8080/src/admin.html
 ```
 
-sass --watch src/css: src/css
+node-sass --watch src/css -o src/css
 
 new 对应点击创建按钮
 create 是保存

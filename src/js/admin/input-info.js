@@ -12,6 +12,8 @@
                 <input type="text" class="short" name="singer" placeholder="歌手名字" value="__singer__">
             </div>
             <input type="text" class="long" name="url" placeholder="外链地址" value="__url__">
+            <input type="text" class="long" name="img" placeholder="封面地址" value="__img__">
+            <textarea name="lyric">__lyric__</textarea>
             <input type="submit" class="button" value="保存">
         </div>
         </form>`,
@@ -19,7 +21,7 @@
           this.$el = $(this.el)
         },
         render (data = {}) {
-            let placeholders = ['name', 'url', 'singer']
+            let placeholders = ['name', 'url', 'singer', 'img', 'lyric']
             let html = this.template
             placeholders.map((string) => {
                 html = html.replace(`__${string}__`, data[string] || '')
@@ -37,16 +39,18 @@
         data: {
             name: '',
             singer: '',
-            url: ''
+            url: '',
+            img: '',
+            lyric: ''
         },
-        create({name, singer, url, id}) {
+        create({name, singer, url, img, lyric, id}) {
             // 声明类型
             let Song = AV.Object.extend('Song');
             // 新建对象
             var song = new Song();
 
             return song.save({
-                name, singer, url
+                name, singer, url, img, lyric
             }).then( (response) => {
                 let {id, attributes} = response
                 Object.assign(this.data, {
@@ -63,6 +67,8 @@
             song.set('name', data.name)
             song.set('singer', data.singer)
             song.set('url', data.url)
+            song.set('img', data.img)
+            song.set('lyric', data.lyric)
             return song.save().then((response) => {
                 // 更新成功需要保存新数据
                 Object.assign(this.data, data)
@@ -85,7 +91,7 @@
                 // 说明
                 if (this.model.data.id) {
                     // 存在于列表的数据，点击创建
-                    this.model.data = {name: '', singer: '', url: ''}
+                    this.model.data = {name: '', singer: '', url: '', img: '', lyric}
                 } else {
                     // 上传歌曲以后，点击新建
                     Object.assign(this.model.data, data)
@@ -106,7 +112,7 @@
             })
         },
         update () {
-            let params = 'name singer url'.split(' ')
+            let params = 'name singer url img lyric'.split(' ')
             let data = {}
             params.map((string) => {
                 data[string] = this.view.$el.find(`[name ="${string}"]`).val()
@@ -119,7 +125,7 @@
 
         },
         create () {
-            let params = 'name singer url'.split(' ')
+            let params = 'name singer url img lyric'.split(' ')
             let data = {}
             params.map((string) => {
                 data[string] = this.view.$el.find(`[name ="${string}"]`).val()

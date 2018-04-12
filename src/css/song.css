@@ -10,6 +10,7 @@ a {
 .clearfix:before, .clearfix:after {
   content: " ";
   display: table; }
+
 .clearfix:after {
   clear: both; }
 
@@ -51,6 +52,15 @@ main {
   /* WebKit browsers */
   color: white; }
 
+img {
+  object-fit: cover; }
+
+@keyframes circle {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
 body {
   background-color: #535353; }
 
@@ -66,13 +76,12 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url(https://p1.music.126.net/_ZIyHUML8sXBvJXqLdQDOg==/105553116278617.jpg?imageView&thumbnail=360x0&quality=75&tostatic=0);
-    background-size: cover;
     filter: blur(10px);
     z-index: -1; }
   main .dist-wrap .needle {
     position: absolute;
-    left: 200px;
+    left: 160px;
+    top: -90px;
     width: 188px;
     z-index: 2; }
   main .dist-wrap .dist-content {
@@ -81,25 +90,56 @@ main {
     align-items: center;
     margin-left: 30px;
     position: relative; }
+    main .dist-wrap .dist-content .dist-img {
+      position: absolute;
+      left: -30px;
+      top: -180px;
+      height: 100vh;
+      width: 100vw;
+      filter: blur(10px);
+      background-size: cover; }
     main .dist-wrap .dist-content .ring {
-      width: 550px;
+      width: 450px;
       z-index: 1; }
     main .dist-wrap .dist-content .light {
       position: absolute;
-      width: 550px;
+      width: 450px;
       z-index: 1; }
     main .dist-wrap .dist-content .song-cover {
-      width: 350px;
+      width: 290px;
+      height: 290px;
       position: absolute;
-      left: 100px; }
+      left: 84px;
+      animation: circle 20s infinite linear;
+      animation-play-state: paused; }
+    main .dist-wrap .dist-content .icon-17 {
+      color: white;
+      position: absolute;
+      font-size: 120px;
+      z-index: 6;
+      left: 162px;
+      cursor: pointer; }
     main .dist-wrap .dist-content .song-info {
       top: 0;
       position: absolute;
-      left: 600px;
-      font-size: 14px; }
+      left: 500px;
+      font-size: 14px;
+      width: 40vw; }
       main .dist-wrap .dist-content .song-info p {
-        margin-bottom: 15px; }
+        margin-bottom: 15px;
+        text-align: center; }
       main .dist-wrap .dist-content .song-info .name {
         font-size: 20px; }
-
-/*# sourceMappingURL=song.css.map */
+      main .dist-wrap .dist-content .song-info .lyrics {
+        font-size: 20px;
+        max-height: 50vh;
+        overflow: scroll; }
+        main .dist-wrap .dist-content .song-info .lyrics p {
+          margin: 0;
+          color: #535353;
+          font-size: 16px; }
+        main .dist-wrap .dist-content .song-info .lyrics .active {
+          color: white;
+          font-size: 18px; }
+  main .running .song-cover {
+    animation-play-state: running !important; }

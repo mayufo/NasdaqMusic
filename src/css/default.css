@@ -51,3 +51,6 @@ main {
 ::-webkit-input-placeholder {
   /* WebKit browsers */
   color: white; }
+
+img {
+  object-fit: cover; }

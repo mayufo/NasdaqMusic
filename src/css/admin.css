@@ -10,6 +10,7 @@ a {
 .clearfix:before, .clearfix:after {
   content: " ";
   display: table; }
+
 .clearfix:after {
   clear: both; }
 
@@ -51,21 +52,28 @@ main {
   /* WebKit browsers */
   color: white; }
 
+img {
+  object-fit: cover; }
+
 main .active {
-  background: #4b79cf !important; }
+  background: #65a8cf !important; }
+
 main h3 {
   padding-bottom: 10px;
   border-bottom: 1px solid white;
   margin-bottom: 15px; }
+
 main .input-info-area {
   display: flex;
   flex-direction: row; }
+
 main input {
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid white;
   padding: 6px 14px;
   color: white;
   margin-bottom: 16px; }
+
 main .create-song {
   background: #535353;
   padding: 6px 16px;
@@ -74,6 +82,7 @@ main .create-song {
   margin-bottom: 20px;
   float: left;
   margin-right: 30px; }
+
 main .input-info-wrapper {
   margin-bottom: 30px; }
   main .input-info-wrapper .input-info {
@@ -91,6 +100,16 @@ main .input-info-wrapper {
       width: 100%; }
     main .input-info-wrapper .input-info .button {
       margin: 0; }
+    main .input-info-wrapper .input-info textarea {
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid white;
+      padding: 6px 14px;
+      color: white;
+      width: 100%;
+      height: 80px;
+      margin-bottom: 16px;
+      resize: none; }
+
 main .song-list-wrapper {
   flex-grow: 1; }
   main .song-list-wrapper ol {
@@ -112,6 +131,7 @@ main .song-list-wrapper {
       width: 40%; }
     main .song-list-wrapper li .short {
       width: 26%; }
+
 main .upload-song {
   width: calc(100% - 150px);
   padding: 6px 50px;
@@ -154,5 +174,3 @@ main .upload-song {
     transform: scale(1); }
   100% {
     transform: scale(0.1); } }
-
-/*# sourceMappingURL=admin.css.map */

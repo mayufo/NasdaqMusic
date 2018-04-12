@@ -6,22 +6,6 @@
         el: 'main > .song-list-wrapper',
         template: `<h3>歌曲列表</h3>
         <ol class="song-list">
-            <!--<li v-for="song in songs"></li>-->
-            <!--<li>-->
-                <!--<div class="long">B-15 [Liberation, Catalysis]</div>-->
-                <!--<div class="short">鷺巣詩郎</div>-->
-                <!--<div class="short">5:00</div>-->
-            <!--</li>-->
-            <!--<li>-->
-                <!--<div class="long">{禁じられた游び}(TV size)(OPテーマ)</div>-->
-                <!--<div class="short">光宗信吉</div>-->
-                <!--<div class="short">5:00</div>-->
-            <!--</li>-->
-            <!--<li>-->
-                <!--<div class="long">川べりの家</div>-->
-                <!--<div class="short">松崎名央</div>-->
-                <!--<div class="short">5:00</div>-->
-            <!--</li>-->
         </ol>`,
         clearActive () {
           this.$el.find('.active').removeClass('active')
@@ -33,7 +17,7 @@
             this.$el.html(this.template)
             let {songs, selectId} = data
             let liList = songs.map((song) => {
-                let $li = $('<li></li>').html(`<div class="long overflow">${song.name}</div><div class="short overflow">${song.singer}</div><div class="short overflow">${song.time}</div>`).attr('data-id', song.id)
+                let $li = $('<li></li>').html(`<div class="long overflow">${song.name}</div><div class="short overflow">${song.singer}</div>`).attr('data-id', song.id)
                 if (song.id === selectId) {
                     $li.addClass('active')
                     return $li
@@ -105,7 +89,6 @@
                 this.view.clearActive()
             })
             window.eventHub.on('update', (data) => {
-                console.log(555, data);
                 for (let i = 0; i < this.model.data.songs.length; i++) {
                     if (this.model.data.songs[i].id === data.id) {
                         Object.assign(this.model.data.songs[i], data)

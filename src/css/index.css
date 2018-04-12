@@ -10,6 +10,7 @@ a {
 .clearfix:before, .clearfix:after {
   content: " ";
   display: table; }
+
 .clearfix:after {
   clear: both; }
 
@@ -51,11 +52,14 @@ main {
   /* WebKit browsers */
   color: white; }
 
+img {
+  object-fit: cover; }
+
 main {
   padding: 0; }
 
 .header-wrapper .banner {
-  background: #4b79cf;
+  background: #65a8cf;
   padding: 10px 15px; }
   .header-wrapper .banner .icon-music-note {
     float: left;
@@ -66,6 +70,7 @@ main {
     font-size: 14px;
     line-height: 35px;
     margin-left: 15px; }
+
 .header-wrapper .tab {
   display: flex;
   background: white;
@@ -76,13 +81,15 @@ main {
     line-height: 44px;
     font-size: 14px; }
   .header-wrapper .tab .active {
-    color: #4b79cf;
-    border-bottom: 3px solid #4b79cf; }
+    color: #65a8cf;
+    border-bottom: 3px solid #65a8cf; }
 
 .content > li {
   display: none; }
+
 .content .recommend {
   display: block; }
+
 .content h3 {
   padding: 15px 15px;
   position: relative;
@@ -92,12 +99,13 @@ main {
     content: '';
     height: 14px;
     width: 2px;
-    background: #4b79cf;
+    background: #65a8cf;
     display: block;
     position: absolute;
     margin-right: 15px;
     left: 0;
     top: calc(50% - 7px); }
+
 .content .new-content {
   margin-left: 15px; }
   .content .new-content > li {
@@ -111,5 +119,3 @@ main {
       position: absolute;
       right: 15px;
       top: calc(50% - 17px); }
-
-/*# sourceMappingURL=index.css.map */
